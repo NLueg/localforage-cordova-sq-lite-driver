@@ -1,0 +1,45 @@
+{
+  "name": "localforage-cordova-sq-lite-driver",
+  "version": "0.0.0",
+  "description": "SQLite driver for cordova apps using localforage",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "postinstall": "npm run build",
+    "lint": "eslint src --ext .ts --ext .html",
+    "lint:fix": "eslint src --ext .ts --ext .html --fix",
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NLueg/localforage-cordova-sq-lite-driver.git"
+  },
+  "keywords": [
+    "cordova",
+    "localforage",
+    "sqLite",
+    "ionic",
+    "capacitor"
+  ],
+  "author": "Nico Lueg (nicolueg@yahoo.de)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NLueg/localforage-cordova-sq-lite-driver/issues"
+  },
+  "homepage": "https://github.com/NLueg/localforage-cordova-sq-lite-driver#readme",
+  "dependencies": {
+    "localforage": ">=1.9.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "standard-version": "^9.5.0",
+    "typescript": "4.8.4"
+  }
+}
