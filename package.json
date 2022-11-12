@@ -1,11 +1,10 @@
 {
-  "name": "localforage-cordova-sq-lite-driver",
+  "name": "localforage-cordova-sq-lite-driver-ts",
   "version": "1.0.0",
   "description": "SQLite driver for cordova apps using localforage",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "postinstall": "npm run build",
     "lint": "eslint src --ext .ts --ext .html",
     "lint:fix": "eslint src --ext .ts --ext .html --fix",
     "release": "standard-version"
