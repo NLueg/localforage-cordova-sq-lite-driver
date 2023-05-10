@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.5](https://github.com/NLueg/localforage-cordova-sq-lite-driver/compare/v1.0.4...v1.0.5) (2023-05-10)
+
+
+### Bug Fixes
+
+* **typing:** import localforage typings directly ([cfd90ad](https://github.com/NLueg/localforage-cordova-sq-lite-driver/commit/cfd90ad9533581279ade323fb2d8556fc363b349))
+
 ### [1.0.4](https://github.com/NLueg/localforage-cordova-sq-lite-driver/compare/v1.0.3...v1.0.4) (2023-05-10)
 
 
