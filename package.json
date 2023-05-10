@@ -1,6 +1,6 @@
 {
   "name": "localforage-cordova-sq-lite-driver-ts",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "SQLite driver for cordova apps using localforage",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
