@@ -68,20 +68,7 @@ function _initStorage(options: LocalForageOptions): Promise<void> {
   });
 }
 
-const cordovaSQLiteDriver: {
-  removeItem: () => any;
-  dropInstance: () => any;
-  _support: () => Promise<boolean>;
-  keys: () => any;
-  _initStorage: (options: LocalForageOptions) => Promise<void>;
-  clear: () => any;
-  length: () => any;
-  getItem: () => any;
-  _driver: string;
-  key: () => any;
-  setItem: () => any;
-  iterate: () => any;
-} = {
+const cordovaSQLiteDriver: LocalForageDriver = {
   _driver: 'cordovaSQLiteDriverX',
   _initStorage: _initStorage,
   _support: function (): Promise<boolean> {
