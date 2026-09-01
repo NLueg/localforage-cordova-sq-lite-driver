@@ -4,7 +4,7 @@ const driverPromises: {
 } = {};
 
 export function getSerializerPromise(
-  localForageInstance: LocalForage
+  localForageInstance: LocalForage,
 ): Promise<LocalForageSerializer> {
   if (serializerPromise) {
     return serializerPromise;
@@ -15,7 +15,7 @@ export function getSerializerPromise(
 
 export function getDriverPromise(
   localForageInstance: LocalForage,
-  driverName: string
+  driverName: string,
 ): Promise<LocalForageDriver> {
   let relevantDriverPromise = driverPromises[driverName];
   if (relevantDriverPromise) {
@@ -29,14 +29,14 @@ export function getDriverPromise(
 }
 
 export function getWebSqlDriverPromise(
-  localForageInstance: LocalForage
+  localForageInstance: LocalForage,
 ): Promise<LocalForageDriver> {
   return getDriverPromise(localForageInstance, localForageInstance.WEBSQL);
 }
 
 export function executeCallback<T>(
   promise: Promise<T>,
-  callback: (error: Error | null, result?: T) => unknown
+  callback: (error: Error | null, result?: T) => unknown,
 ): any {
   if (callback) {
     promise.then(
@@ -45,7 +45,7 @@ export function executeCallback<T>(
       },
       function (error) {
         callback(error);
-      }
+      },
     );
   }
 }

@@ -49,7 +49,7 @@ function _initStorage(options: LocalForageOptions): Promise<void> {
           },
           function (t, error) {
             reject(error);
-          }
+          },
         );
       });
     });
@@ -97,11 +97,11 @@ function sqlLiteDriverMethod(name: string): () => any {
     const localForageInstance = this;
     // eslint-disable-next-line prefer-rest-params
     const args = arguments;
-    return getWebSqlDriverPromise(localForageInstance).then(function (
-      webSqlDriver
-    ) {
-      return webSqlDriver[name].apply(localForageInstance, args);
-    });
+    return getWebSqlDriverPromise(localForageInstance).then(
+      function (webSqlDriver) {
+        return webSqlDriver[name].apply(localForageInstance, args);
+      },
+    );
   };
 }
 

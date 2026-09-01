@@ -6,9 +6,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "lint": "eslint src --ext .ts --ext .html",
-    "lint:fix": "eslint src --ext .ts --ext .html --fix",
-    "release": "standard-version"
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "release": "commit-and-tag-version"
   },
   "repository": {
     "type": "git",
@@ -31,15 +31,16 @@
     "localforage": ">=1.9.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.42.1",
-    "@typescript-eslint/parser": "^5.42.1",
-    "eslint": "^8.27.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "2.32.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-simple-import-sort": "^8.0.0",
-    "eslint-plugin-unused-imports": "^2.0.0",
-    "commit-and-tag-version": "^13.0.0",
-    "typescript": "4.9.5"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.9.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import-x": "^4.17.1",
+    "eslint-plugin-prettier": "^5.5.6",
+    "eslint-plugin-simple-import-sort": "^14.0.0",
+    "eslint-plugin-unused-imports": "^4.4.1",
+    "prettier": "^3.9.6",
+    "typescript-eslint": "^8.69.0",
+    "commit-and-tag-version": "^13.1.2",
+    "typescript": "^6.0.3"
   }
 }
