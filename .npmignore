@@ -20,3 +20,5 @@ tsconfig.spec.json
 CHANGELOG.md
 LICENSE
 eslint.config.js
+tsconfig.eslint.json
+vitest.config.mts

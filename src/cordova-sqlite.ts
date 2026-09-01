@@ -1,9 +1,39 @@
+export interface CordovaSQLiteTransaction {
+  executeSql(
+    sql: string,
+    params: unknown[],
+    successCallback?: () => void,
+    errorCallback?: (
+      transaction: CordovaSQLiteTransaction,
+      error: unknown,
+    ) => void,
+  ): void;
+}
+
+export interface CordovaSQLiteDatabase {
+  transaction(callback: (transaction: CordovaSQLiteTransaction) => void): void;
+}
+
+export interface CordovaSQLiteOpenDatabaseOptions {
+  name: string;
+  version: string;
+  description?: string;
+  size?: number;
+  key?: string;
+  location: string;
+  androidDatabaseProvider?: string;
+}
+
+export type CordovaOpenDatabaseFn = (
+  options: CordovaSQLiteOpenDatabaseOptions,
+) => CordovaSQLiteDatabase;
+
 declare global {
   interface Window {
     sqlitePlugin: {
-      openDatabase: (options: any) => any;
+      openDatabase: CordovaOpenDatabaseFn;
     };
-    cordova: any;
+    cordova: unknown;
   }
 }
 
@@ -20,7 +50,7 @@ export const deviceReady = new Promise<void>(function (resolve, reject) {
 
 const deviceReadyDone = deviceReady.catch(() => Promise.resolve());
 
-export function getOpenDatabasePromise(): Promise<(options: any) => any> {
+export function getOpenDatabasePromise(): Promise<CordovaOpenDatabaseFn> {
   return deviceReadyDone.then(function () {
     if (
       typeof window.sqlitePlugin !== 'undefined' &&

@@ -4,10 +4,16 @@
   "description": "SQLite driver for cordova apps using localforage",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "scripts": {
     "build": "tsc",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
+    "typecheck": "tsc -p tsconfig.eslint.json --noEmit",
+    "lint": "eslint src test",
+    "lint:fix": "eslint src test --fix",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "release": "commit-and-tag-version"
   },
   "repository": {
@@ -41,6 +47,9 @@
     "prettier": "^3.9.6",
     "typescript-eslint": "^8.69.0",
     "commit-and-tag-version": "^13.1.2",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "@types/node": "^26.4.0",
+    "vite": "^8.2.2",
+    "vitest": "^4.1.11"
   }
 }

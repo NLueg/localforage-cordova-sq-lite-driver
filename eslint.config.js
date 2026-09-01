@@ -12,11 +12,11 @@ module.exports = tseslint.config(
     ignores: ['dist/**'],
   },
   {
-    files: ['src/**/*.ts'],
+    files: ['src/**/*.ts', 'test/**/*.ts'],
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     languageOptions: {
       parserOptions: {
-        project: ['tsconfig.json'],
+        project: ['tsconfig.eslint.json'],
         tsconfigRootDir: __dirname,
       },
     },

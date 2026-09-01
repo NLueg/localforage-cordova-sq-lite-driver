@@ -1,4 +1,7 @@
-import { getOpenDatabasePromise } from './cordova-sqlite';
+import {
+  CordovaSQLiteTransaction,
+  getOpenDatabasePromise,
+} from './cordova-sqlite';
 import { getSerializerPromise, getWebSqlDriverPromise } from './sqlite-utils';
 
 // Open the cordova sqlite plugin database (automatically creates one if one didn't
@@ -37,7 +40,7 @@ function _initStorage(options: LocalForageOptions): Promise<void> {
       }
 
       // Create our key/value table if it doesn't exist.
-      dbInfo.db.transaction(function (t) {
+      dbInfo.db.transaction(function (t: CordovaSQLiteTransaction) {
         t.executeSql(
           'CREATE TABLE IF NOT EXISTS ' +
             dbInfo.storeName +
@@ -47,7 +50,7 @@ function _initStorage(options: LocalForageOptions): Promise<void> {
             self._dbInfo = dbInfo;
             resolve();
           },
-          function (t, error) {
+          function (_t: CordovaSQLiteTransaction, error: unknown) {
             reject(error);
           },
         );
@@ -91,7 +94,9 @@ const cordovaSQLiteDriver: any = {
   dropInstance: sqlLiteDriverMethod('dropInstance'),
 };
 
-function sqlLiteDriverMethod(name: string): () => any {
+function sqlLiteDriverMethod(
+  name: string,
+): (...args: unknown[]) => Promise<unknown> {
   return function () {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const localForageInstance = this;
